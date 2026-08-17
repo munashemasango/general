@@ -1,65 +1,64 @@
-# California Housing — Exploratory Analysis & Baseline Regression
+# Notebooks & Reference Code
 
-The latest Notebook place in thes repository is as follows: 
+A public collection of notebooks and small code projects I'm sharing as
+**reference material — for learning, reuse, and demonstration purposes.**
 
-A reproducible end-to-end analysis of the California Housing dataset combining exploratory data analysis, statistical inference, geographic comparisons, and an interpretable OLS regression baseline.
+Everything here is meant to be readable end-to-end: each notebook loads its
+own data (usually a well-known public dataset), documents *why* each step
+happens alongside the code that does it, and ends with a short, shareable
+summary you can reuse in a README, blog post, or LinkedIn write-up.
 
-## Project focus
+## What you'll find here
 
-The notebook answers four practical questions:
+- **Self-contained notebooks** — each one runs top to bottom without
+  external setup beyond the listed Python packages.
+- **A short "why" note after every major step** — the goal is to make the
+  reasoning as visible as the code, not just hand you a working script.
+- **Baselines, not finished products** — these are meant as clean starting
+  points to build on, not production-ready or fully tuned models.
 
-1. **What does the dataset look like?** — distributions, outliers, completeness, and feature relationships.
-2. **Which variables appear most informative?** — correlation analysis and feature ablation.
-3. **Do broad geographic groupings show different house-value patterns?** — North/South and Coastal/Inland comparisons.
-4. **How strong is a transparent linear baseline?** — OLS diagnostics, validation performance, and final test evaluation.
+## Repository structure
 
-## Analysis pipeline
+Each notebook lives in its own folder (or at the root, for smaller
+projects) alongside a notebook-specific `README.md` that covers what it
+does, the data it uses, and how to run it. This file is the repository's
+front page — start with a notebook's own README for details on that
+project.
 
-**Data quality → EDA → Correlation → Confidence interval → Geographic tests → Train/Validation/Test split → OLS → Residual diagnostics → Feature ablation → Final test evaluation**
+```
+.
+├── README.md                                      <- you are here
+└── california-housing-baseline-regression/
+    ├── california-housing-baseline-regression.ipynb
+    └── README.md
+```
 
-## Key findings
+## How to use this repo
 
-- The dataset contains **20,640 complete observations**.
-- `MedInc` is the strongest linear correlate of `MedHouseVal` (about **0.69**).
-- Removing `MedInc` caused the largest validation RMSE increase in the ablation study (about **+0.148**).
-- `Latitude` and `Longitude` also contribute meaningful predictive signal.
-- The completed baseline achieved approximately:
-  - **RMSE:** 0.7218
-  - **MAE:** 0.5217
-  - **R²:** 0.6060
-- The Breusch–Pagan test produced a p-value effectively equal to **0.000**, indicating heteroscedasticity and highlighting a limitation of classical OLS inference.
-- The simple North/South and Coastal/Inland mean comparisons were not statistically significant at the 5% level (p ≈ 0.075 and p ≈ 0.195 respectively).
+1. Pick a notebook and open its own `README.md` for a summary of what it
+   covers and what packages it needs.
+2. Open the `.ipynb` file in Jupyter, JupyterLab, or VS Code and run it top
+   to bottom.
+3. Adapt the code for your own data or question — that's the intent.
 
-## Why this matters
+## Scope and disclaimer
 
-This project is deliberately **baseline-first**. The purpose is not to present a production valuation system, but to establish a transparent benchmark and demonstrate a complete analytical workflow before introducing more complex models.
+- This repo is for **reference and educational purposes**. Nothing here —
+  including any notebook that touches financial, housing, or investment
+  data — is financial, investment, or professional advice.
+- Notebooks favor clarity and reproducibility over performance. Where a
+  notebook makes a modeling choice (a train/val/test split ratio, a fixed
+  random seed, a simplified regional cutoff, etc.), it's called out in that
+  notebook's markdown so you can see the assumption and change it.
 
-## Dataset
+## Contributing / feedback
 
-The notebook uses the California Housing dataset loaded through `sklearn.datasets.fetch_california_housing`.
+This is primarily a personal reference collection, but issues and PRs
+pointing out errors, unclear explanations, or suggested additions are
+welcome.
 
-`MedHouseVal` is expressed in units of **$100,000s**.
+## License
 
-## Repository contents
-
-- `california-housing-regression-analysis-final.ipynb` — full analysis notebook
-
-## Reproduction
-
-Run the notebook from top to bottom in a Python 3 environment with:
-
-- pandas
-- numpy
-- matplotlib
-- seaborn
-- scipy
-- scikit-learn
-- statsmodels
-
-The notebook loads the dataset through scikit-learn, so no separate data file is required.
-
-## Next steps
-
-Natural extensions are robust regression, nonlinear tree-based models, feature engineering, interactions, and richer geographic or temporal data.
-
-> **Disclaimer:** This is an educational data-science project. It is not financial or investment advice.
+See individual notebooks for any dataset-specific licensing notes. Unless
+stated otherwise, code in this repository is provided for reference and
+educational use.
