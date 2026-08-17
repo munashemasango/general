@@ -1,5 +1,7 @@
 # California Housing — Exploratory Analysis & Baseline Regression
 
+The latest Notebook place in thes repository is as follows: 
+
 A reproducible end-to-end analysis of the California Housing dataset combining exploratory data analysis, statistical inference, geographic comparisons, and an interpretable OLS regression baseline.
 
 ## Project focus
